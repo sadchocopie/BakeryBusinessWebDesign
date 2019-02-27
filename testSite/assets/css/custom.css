@@ -1,0 +1,45 @@
+.top-nav {
+    background-color: darkslategray;
+    color: white;
+}
+
+.intro {
+    background-color: darkslategray;
+    color: white;
+}
+
+.footer {
+    background-color: darkslategray;
+    color: white;
+}
+
+.satisfaction {
+    background-color: darkslategray;
+    color: white;
+}
+
+
+
+.top-nav h1 {
+    font-size: 24px;
+}
+
+.section {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.billboard {
+    height: 30vw;
+    background-image: url(../img/billboard.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:right;
+    position:relative;
+}
+
+
+.intro .button {
+    color: white;
+}
+
