@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "hello there"
+echo "hello there person"
