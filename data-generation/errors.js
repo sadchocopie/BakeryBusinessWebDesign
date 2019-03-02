@@ -19,22 +19,22 @@ const urls = ["/","/menu.html"];
 const type = types[Math.floor(Math.random()*types.length)];
 const timestamp = new Date(+(new Date()) - Math.floor(Math.random()*10000000000)).toISOString().slice(0, 19).replace('T', ' ');
 const url = urls[Math.floor(Math.random()*urls.length)];
-const client_id = random_id();
+const cookie = random_id();
 
 //error data packet
 const error_data = {
-    "type": type,
+    "cookie": cookie,
     "timestamp": timestamp,
-    "client_id": client_id,
+    "type": type,
     "url": url
 }
-
 //console.log(error_data);
 
 //write it out to a file
 fs.writeFile("./error.json",JSON.stringify(error_data), (err) => {
     if(err){
         console.error(err);
-        return;
+        return;//exit out of things
     }
+    //else do nothing because everything went well
 });
