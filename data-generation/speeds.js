@@ -34,7 +34,7 @@ const speed_data = {
 
 //*//
 //write it out to a file
-fs.writeFile("./speed_data.json",JSON.stringify(speed_data), (err) => {
+fs.writeFile("./speed.json",JSON.stringify(speed_data), (err) => {
     if(err){
         console.error(err);
         return;//exit out of things
