@@ -48,7 +48,7 @@
 
 .container-2 {
     display: table;
-    width: 100%;
+    width: 95%;
     word-wrap: break-word;
     padding: 10px;
     margin: 10px;
@@ -63,6 +63,7 @@
 
 .menu-item > img {
     width: 20vw;
+    margin-left: 8vw;
 }
 
 .menu-item > .button {
