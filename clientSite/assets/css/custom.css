@@ -1,0 +1,75 @@
+.top-nav {
+    background-color: darkslategray;
+    color: white;
+
+}
+
+.intro {
+    background-color: darkslategray;
+    color: white;
+}
+
+.footer {
+    background-color: darkslategray;
+    color: white;
+}
+
+.satisfaction {
+    background-color: darkslategray;
+    color: white;
+}
+
+.top-nav h1 {
+    font-size: 24px;
+}
+
+.section {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.billboard {
+    height: 30vw;
+    background-image: url(../img/billboard.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:right;
+    position:relative;
+}
+
+.intro .button {
+    color: white;
+}
+
+.menu {
+    background-color: darkslategray;
+    color: white;
+}
+
+.container-2 {
+    display: table;
+    width: 95%;
+    word-wrap: break-word;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid white;
+}
+
+.menu-item {
+    display: table-cell;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.menu-item > img {
+    width: 20vw;
+    margin-left: 8vw;
+}
+
+.menu-item > .button {
+    color: white;
+}
+
+
+
+
