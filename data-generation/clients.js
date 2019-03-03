@@ -20,7 +20,7 @@ const resolutions = [
 "1280×800"
 ]
 
-const urls = ["/","/menu.html"];
+const urls = ["/","/index.html","/menu.html"];
 
 let resolution = resolutions[Math.floor(Math.random()*resolutions.length)];
 const url = urls[Math.floor(Math.random()*urls.length)];

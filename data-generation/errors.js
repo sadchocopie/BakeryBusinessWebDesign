@@ -12,7 +12,7 @@ function random_id() {
 }
 
 //these are the different types and urls that could appear in the error log
-const types = ["on hover","undefined func","missing resource","connection error"];
+const types = ["Error handling response: Error: Failed to construct 'WebSocket': The URL 'ws/ws' is invalid.","Uncaught ReferenceError: learnMoreFunction is not defined","Missing Resource: cat.png could not be found"];
 const urls = ["/","/menu.html"];
 
 //create the random error data

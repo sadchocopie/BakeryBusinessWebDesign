@@ -13,16 +13,14 @@ function random_id() {
 
 //these are the different button names that could appear in the website 
 const names = [
-"logo",
-"back",
-"order",
-"menu",
-"learn more",
-"browser back button",
-"brownie",
-"oatmeal raisin cookie",
-"ice cream muffin",
-"banna bread"
+"logo-button",
+"back-button",
+"menu-button",
+"learnmore-button",
+"brownie-button",
+"cookie-button",
+"muffin-button",
+"bread-button"
 ];
 
 //create the random data

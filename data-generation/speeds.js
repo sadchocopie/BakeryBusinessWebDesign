@@ -20,7 +20,7 @@ const start_time = new Date(+(new Date()) - Math.floor(Math.random()*10000000000
 const cookie = random_id();
 const timestamp = start_time.toISOString().slice(0, 19).replace('T', ' ');
 const delay = delays[Math.round(Math.random() * (delays.length - 1))];
-const load_time = start_time.getTime() + Math.floor(Math.random() * 256) + (delay * 1); 
+const load_time = Math.floor(Math.random() * 256) + (delay * 1); 
 
 //error data packet
 const speed_data = {

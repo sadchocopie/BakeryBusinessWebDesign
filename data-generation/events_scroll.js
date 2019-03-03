@@ -28,7 +28,7 @@ function pos_or_neg(){
 //create the random data
 const cookie = random_id();
 const timestamp = new Date(+(new Date()) - Math.floor(Math.random()*10000000000)).toISOString().slice(0, 19).replace('T', ' ');
-const depth = Math.floor(Math.random()*1674) * pos_or_neg();
+const depth = Math.floor(Math.random()*1674);
 
 
 //button data packet

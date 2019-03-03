@@ -19,7 +19,7 @@ function random_number(limit)
 //create the random data
 const cookie = random_id();
 const timestamp = new Date(+(new Date()) - Math.floor(Math.random()*10000000000)).toISOString().slice(0, 19).replace('T', ' ');
-const coordinates = `(${random_number(1920)} ${random_number(1080)}, ${random_number(1920)} ${random_number(1080)})`;//(1 1, 3 3)
+const coordinates = `(${random_number(1920)} ${random_number(1080)},${random_number(1920)} ${random_number(1080)})`;//(1 1, 3 3)
 
 //button data packet
 const mouse_data = {
