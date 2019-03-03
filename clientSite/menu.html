@@ -25,6 +25,22 @@
 
         <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+       <script>
+            //pick 0 or 1 to cause a delay
+            const cause_delay = Math.floor(Math.random()*2); 
+
+            //set delay to be 0 by default
+            let delay = 0;
+
+            if(cause_delay)
+            {
+                //set random delay amount
+                delay = Math.floor(Math.random()*2000);
+            }
+            //write a comment in the DOM, but delayed
+            setTimeout(document.write(`<!-- we delayed you ${delay} miliseconds -->`),delay);
+        </script>
+ 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <!-- Favicon
@@ -64,7 +80,7 @@
                         <h5 class="value-heading">Fudge Brownie</h5>
                         <p class="value-description">Yep just a brownie.</p>
                         <p class="value-description pricetag" id="brownie-price">$2.50</p>
-                        <a class="button" id="brownie-button" href="#">Order</a>
+                        <a class="button" id="brownie-button" onclick="registerClick('brownie-button')">Order</a>
                     </div>
                 </div>
 
@@ -77,7 +93,7 @@
                         <h5 class="value-heading">Oatmeal Rasin Cookie</h5>
                         <p class="value-description">The cookie ya wanna track.</p>
                         <p class="value-description pricetag" id="cookie-price">$1.50</p>
-                        <a class="button" id="cookie-button" href="#">Order</a>
+                        <a class="button" id="cookie-button" onclick="registerClick('cookie-btn')">Order</a>
                     </div>
                 </div>
 
@@ -91,7 +107,7 @@
                         <h5 class="value-heading">Ice Cream Muffin</h5>
                         <p class="value-description">Did someone say ice cream.</p>
                         <p class="value-description pricetag" id="muffin-price">$3</p>
-                        <a class="button" id="muffin-button" href="#">Order</a>
+                        <a class="button" id="muffin-button" onclick="registerClick('muffin-button')">Order</a>
                     </div>
                 </div>
 
@@ -104,7 +120,7 @@
                         <h5 class="value-heading">Banana Bread</h5>
                         <p class="value-description">Banana uwu na na.</p>
                         <p class="value-description pricetag" id="bread-price">$4</p>
-                        <a class="button" id="bread-button" href="#">Order</a>
+                        <a class="button" id="bread-button" onclick="registerClick('bread-button')">Order</a>
                     </div>
                 </div>
             </div>
@@ -114,10 +130,10 @@
         <div class="section pictures">
             <div class="container">
                 <div class="one-half column value">
-                    <img class="u-max-full-width"  src="../assets/img/topviewbread.jpg">
+                    <img class="u-max-full-width"  src="./assets/img/topviewbread.jpg">
                 </div>
                 <div class="one-half column value">
-                    <img class="u-max-full-width"  src="../assets/img/flour.jpg">
+                    <img class="u-max-full-width"  src="./assets/img/flour.jpg">
                 </div>
             </div>
         </div>
@@ -135,4 +151,9 @@
         <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     </body>
+    <script src="./collector.js"></script>
+    <noscript id="js_disabled">
+        <img src="/client?url=index.html&js_enabled=0" hidden>
+        <!-- javascript has been disabled -->
+    </noscript>
 </html>
