@@ -40,6 +40,8 @@ window.onerror = function errorhandler(e) {
 
 // static data collection
 window.onload = function page_load() {
+    const load_time = new Date() - window.performance.timing.fetchStart;
+
     // disable the noscript handler in the html
     const noscript = document.getElementById('js_disabled');
     noscript.parentNode.removeChild(noscript);
@@ -57,7 +59,7 @@ window.onload = function page_load() {
     const speed_data = {
         "cookie": document.cookie.split('=')[1],
         "timestamp": new Date().toISOString().slice(0, 19).replace('T', ' '),
-        "load_time": window.performance.timing.LoadEventEnd - window.performance.timing.fetchStart,
+        "load_time": load_time,
         "delay": delay
     }
 
