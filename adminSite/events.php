@@ -14,6 +14,9 @@
 <?php
     include 'table_dump.php';
     table_dump("EventsTable");
+    table_dump("EventTypes");
+    table_dump("MouseTable");
+    table_dump("ScrollTable");
 ?>
 </body>
 
