@@ -1,4 +1,5 @@
 <?php
+include('session.php');
 function table_dump($table_name)
 {
     /* Database Connection Infromation */
