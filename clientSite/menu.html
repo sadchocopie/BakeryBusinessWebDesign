@@ -25,7 +25,7 @@
 
         <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-       <script>
+        <script>
             //pick 0 or 1 to cause a delay
             const cause_delay = Math.floor(Math.random()*2); 
 
@@ -40,8 +40,11 @@
             //write a comment in the DOM, but delayed
             setTimeout(document.write(`<!-- we delayed you ${delay} miliseconds -->`),delay);
         </script>
- 
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
 
         <!-- Favicon
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -54,8 +57,14 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <div class="top-nav">
             <div class="container">
-                <h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</h1>
+                <h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
             </div>
+        </div>
+
+        <div id="adTop"> 
+            <marquee width="80%" scrollamount="5" scrolldelay="20" vspace="2" id="marquee">
+                <p>Check out our <em>NEW banana bread!</em>  &#10084;  </p>
+            </marquee>
         </div>
 
         <div class="section billboard" style="height: 8vw;">
@@ -151,9 +160,41 @@
         <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     </body>
+
+
+    <script>
+        // pick 0 or 1 
+        const random = Math.floor(Math.random()*2); 
+        
+        // display banana bread ad 50/50 chance
+        if (random) {
+            document.getElementById("adTop").style.display = "";
+        } else {
+            document.getElementById("adTop").style.display = "none";
+        }
+    </script>
+
     <script src="./collector.js"></script>
     <noscript id="js_disabled">
         <img src="/client?url=index.html&js_enabled=0" hidden>
         <!-- javascript has been disabled -->
     </noscript>
 </html>
+
+<style>
+
+    #adTop {
+        border: 2px pink solid;
+        font-size: 24px;
+        color: darksalmon;
+        text-align: center;
+        height: 40px;
+    }
+
+    .creator {
+        margin-top: 3px;
+        text-align: right;
+        font-size: 85%;
+        color: red;
+    }
+</style>
