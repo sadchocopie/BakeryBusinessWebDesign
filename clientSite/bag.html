@@ -69,7 +69,7 @@
                 <script id="bag-template" type="text/x-handlebars-template">
 <div class="row container-2">
     <div class="one-half column menu-item picture" id={{itemID}}>
-    <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
+        <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
                     </div>
     <div class="one-half column menu-item">
         <h5 class="value-heading">{{itemID}}</h5>
@@ -107,22 +107,23 @@
             var storage = localStorage.getItem('bagDetail');
 
             var localStore = JSON.parse(storage);
+            
+            console.log(localStore);
 
             $(document).ready(function() {
 
                 var source = $("#bag-template").html();
                 var template = Handlebars.compile(source);
                 var parentDiv = $("#bagSpace");
-                var curHtml = template(localStore);
-                parentDiv.append(curHtml);
-                /**
+
+
                 for (var i = 0; i < localStore.length; i++) {
                     var curData = localStore[i];
-                    var curHtml = template(localStore);
+                    var curHtml = template(curData);
                     parentDiv.append(curHtml);
                 }
 
-                **/
+
             });
         }
 
