@@ -25,17 +25,20 @@ function send_data(url, data) {
     }
 }
 
-// error collection
-window.onerror = function errorhandler(e) {
-
+function send_error(e){
     error_data = {
         "cookie": document.cookie.split('=')[1],
         "timestamp": new Date().toISOString().slice(0, 19).replace('T', ' '),
         "type": e,
         "url": window.location.pathname
     };
-
+    console.error('sending new error: '+JSON.stringify(error_data));
     send_data(url + '/error', error_data);
+}
+
+// error collection
+window.onerror = function errorhandler(e) {
+    send_error(e);
 }
 
 // static data collection
