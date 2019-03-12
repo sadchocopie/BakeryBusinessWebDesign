@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Basic Page Needs
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta charset="utf-8">
+        <title>CSE135 Bakery - Bag</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+        <!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="./Skeleton-2.0.4/css/normalize.css">
+        <link rel="stylesheet" href="./Skeleton-2.0.4/css/skeleton.css">
+        <link rel="stylesheet" href="./assets/css/custom.css">
+
+        <!-- Scripts
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="assets/js/handlebars-v4.1.0.js"></script>
+
+
+
+
+        <!-- Favicon
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+    </head>
+    <body>
+
+        <!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="top-nav">
+            <div class="container">
+                <div id="nav">
+                    <ul>
+                        <li><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
+                        </li>
+                        <li class="u-pull-right">Bag<img src="./assets/img/bag.png" id="bag"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section billboard" style="height: 8vw;">
+            <div class="container">
+                <div class="row">
+                    <div class="one-half column">
+                        <a class="button" href="./menu.html" id="back-button" onclick="registerClick('back-button')">Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section menu">
+            <div class="container" id="bagSpace">
+                <h3>Your Bag Detail</h3>
+                <script id="bag-template" type="text/x-handlebars-template">
+<div class="row container-2">
+    <div class="one-half column menu-item picture" id={{itemID}}>
+        <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
+                    </div>
+    <div class="one-half column menu-item">
+        <h5 class="value-heading">{{itemID}}</h5>
+        <p class="value-description pricetag" id="price">{{itemPrice}}</p>
+        <a class="button" id="button" onclick="removeFromBag({{itemID}});">Remove</a>
+                    </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+
+        <div class="section footer" style="text-align: center;">
+            <div class="container">
+                <p>CSE135 Bakery - Made with &#10084;</p>
+            </div>
+        </div>
+
+
+
+        <!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    </body>
+
+    <script>
+        function removeFromBag(itemID) {
+            //....
+        }
+    </script>
+
+
+    <script>
+
+        window.onload = function() {
+
+            var storage = localStorage.getItem('bagDetail');
+
+            var localStore = JSON.parse(storage);
+            
+            console.log(localStore);
+
+            $(document).ready(function() {
+
+                var source = $("#bag-template").html();
+                var template = Handlebars.compile(source);
+                var parentDiv = $("#bagSpace");
+
+
+                for (var i = 0; i < localStore.length; i++) {
+                    var curData = localStore[i];
+                    var curHtml = template(curData);
+                    parentDiv.append(curHtml);
+                }
+
+
+            });
+        }
+
+    </script>
+
+
+
+    <noscript id="js_disabled">
+        <img src="/client?url=index.html&js_enabled=0" hidden>
+        <!-- javascript has been disabled -->
+    </noscript>
+</html>
+
+<style>
+
+    #adTop {
+        border: 2px pink solid;
+        font-size: 24px;
+        color: darksalmon;
+        text-align: center;
+        height: 40px;
+    }
+
+    #nav ul li {
+        display: inline;
+    }
+
+    #nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #nav a:hover {
+        color: antiquewhite;
+    }
+</style>

@@ -1,10 +1,7 @@
 const url = "http://localhost:3000";//fake rest endpoint locally
 //const url = "http://httpbin.org/post";//good for testing against real web server
 
-function form_encoding(json_data) {
-    //just encode as form directly
-    return encodeURIComponent(JSON.stringify(json_data));
-}
+
 
 function send_data(url, data) {
     data = JSON.stringify(data);
