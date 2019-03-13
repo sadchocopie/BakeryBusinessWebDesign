@@ -186,16 +186,19 @@
 
         var oldArray = new Array();
 
-
+        var counter = 0;
 
         function addToBag(itemID) {
-
+            
+            
+            
             var tagname = itemID + '-img';     
 
             var tag = document.getElementById(tagname).getAttribute("src");
             var price = document.getElementById("price").innerHTML;
 
             var details = {
+                index: counter,
                 itemID: itemID,
                 imgsrc: tag,
                 itemPrice: price,
@@ -210,6 +213,8 @@
 
             var buttonname = itemID + '-button';
             document.getElementById(buttonname).innerHTML = "In Bag";
+            
+            counter++;
 
         };
 

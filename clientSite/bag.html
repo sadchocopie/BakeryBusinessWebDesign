@@ -67,14 +67,14 @@
             <div class="container" id="bagSpace">
                 <h3>Your Bag Detail</h3>
                 <script id="bag-template" type="text/x-handlebars-template">
-<div class="row container-2">
+<div class="row container-2" id={{index}}>
     <div class="one-half column menu-item picture" id={{itemID}}>
         <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
                     </div>
     <div class="one-half column menu-item">
         <h5 class="value-heading">{{itemID}}</h5>
         <p class="value-description pricetag" id="price">{{itemPrice}}</p>
-        <a class="button" id="button" onclick="removeFromBag({{itemID}});">Remove</a>
+        <a class="button" id="button" onclick="removeFromBag({{index}});">Remove</a>
                     </div>
                     </div>
                 </script>
@@ -94,8 +94,22 @@
     </body>
 
     <script>
-        function removeFromBag(itemID) {
+        function removeFromBag(itemIndex) {
             //....
+
+            var store = JSON.parse(localStorage.getItem('bagDetail'));
+
+            delete store[itemIndex];
+
+            localStorage.setItem("bagDetail", JSON.stringify(store));
+            console.log(store);
+
+            itemIndex = itemIndex.toString();
+            console.log("item index: " + itemIndex);
+
+            var childNode = document.getElementById(itemIndex);
+            childNode.style.display = "none";
+
         }
     </script>
 
@@ -107,7 +121,7 @@
             var storage = localStorage.getItem('bagDetail');
 
             var localStore = JSON.parse(storage);
-            
+
             console.log(localStore);
 
             $(document).ready(function() {
@@ -118,9 +132,12 @@
 
 
                 for (var i = 0; i < localStore.length; i++) {
-                    var curData = localStore[i];
-                    var curHtml = template(curData);
-                    parentDiv.append(curHtml);
+
+                    if ( localStore[i] != null) {
+                        var curData = localStore[i];
+                        var curHtml = template(curData);
+                        parentDiv.append(curHtml);
+                    }
                 }
 
 
