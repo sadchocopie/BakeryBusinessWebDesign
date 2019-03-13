@@ -1,0 +1,179 @@
+<?php
+include('session.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Basic Page Needs
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta charset="utf-8">
+        <title>Admins-Report</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+        <!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="./assets/Skeleton-2.0.4/css/normalize.css">
+        <link rel="stylesheet" href="./assets/Skeleton-2.0.4/css/skeleton.css">
+        <link rel="stylesheet" href="./assets/css/custom.css">
+
+        <!-- Scripts
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+        <!-- Favicon
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+    </head>
+    <body>
+
+        <!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <div class="top-nav">
+            <div class="container">
+                <h1>Your Admins Report</h1>
+            </div>
+
+
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="three columns"  id="sideNav">
+                    <nav id="sidebar">
+                        <ul>
+                            <li><a href="" class="active">Dashboards</a></li>
+                            <li><a href="">Stats</a></li>
+                            <li><a href="">Manage User</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <div id="report-content" class="seven columns">
+
+                    <div class="section dashboard-1">
+                        <div class="container">
+                            <h4>Admin Dashboards</h4>
+                            <h6>This is where you will see some things...</h6>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="section dashboard-1">
+                        <div class="container">
+                            <h5>Error Stream..</h5>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="section dashboard-2">
+                        <div class="container">
+                            <h5>More Stuff...</h5>
+
+                        </div>
+                        <hr>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <!--
+
+<div class="section sales">
+<div class="container">
+<h2>Sales</h2>
+
+
+</div>
+<hr class="container">
+</div>
+
+<div class="section form">
+<div class="container">
+<h2>Current Stock</h2>
+
+</div>
+<hr class="container">
+</div>
+
+-->
+
+        <style>
+
+            #sideNav {
+                background-color: white;
+                padding: 10px 15px 0px;
+                box-shadow: 4px 4px 2px #DCDCDC; 
+                min-width: 180px;
+            }
+
+            @media screen and (min-width: 600px) {
+                #sideNav {
+                    height: 100vw;
+                }
+
+            }
+            
+            ul li a {
+                color: black;
+                text-decoration: none;
+            }
+            
+            li .active{
+                font-weight: bold;
+            }
+
+
+        </style>
+        
+        <script>
+            document.getElementsByClassName("active")[0].innerHTML += " >";
+        </script>
+
+        <!-- 
+<style>
+
+#sideNav {
+background-color: white;
+padding: 10px 15px 0px;
+box-shadow: 4px 4px 2px #DCDCDC; 
+min-width: 180px;
+height: 100vw;
+}
+
+@media screen and (min-width: 600px) {
+#sideNav {
+height: 100vw;
+}
+}
+</style>
+
+-->
+
+    </body>
+
+    <noscript id="js_disabled">
+        <img src="/client?url=index.html&js_enabled=0" hidden>
+        <!-- javascript has been disabled -->
+    </noscript>
+</html>
+
+
