@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Report</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="./assets/Skeleton-2.0.4/css/normalize.css">
+    <link rel="stylesheet" href="./assets/Skeleton-2.0.4/css/skeleton.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
+    <!-- Scripts
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+    <!-- Favicon
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="top-nav">
+        <div class="container">
+            <h1>Baker's Report</h1>
+        </div>
+    </div>
+
+    <div class="section sales">
+        <div class="container">
+            <h2>Sales</h2>
+
+            <div class="row container-2">
+
+                <div class="one-half column" id="actualSales-grid">
+                    <h5 class="value-heading">Actual Sales</h5>
+                    <p class="value-description">This is the acutal sales of the week....</p>
+                    <img class="u-max-full-width" src="actual-sales.png" id="actualSales-img">
+                </div>
+                <div class="one-half column" id="missedSales-grid">
+                    <h5 class="value-heading">Missed Sales</h5>
+                    <p class="value-description">This is the missed sales of the week....</p>
+                    <img class="u-max-full-width" src="missed-sales.png" id="missedSales-img">
+                </div>
+            </div>
+        </div>
+        <hr class="container">
+    </div>
+
+    <div class="section form">
+        <div class="container">
+            <h2>Current Stock</h2>
+            <div class="row u-pull-left">
+
+                <form id="stock-form" action="./stock.php" action="POST" style="margin-left: 0;">
+                    <div class="row">
+                        <div class="twelve columns">
+                            <label for="brownie-stock" class="one-third column">Brownie(s)</label>
+                            <input class="two-thirds column" name="stock" placeholder="# in stock" id="brownie-stock-input">
+                        </div>
+
+                        <div class="twelve columns">
+                            <label for="cookie-stock" class="one-third column">Cookie(s)</label>
+                            <input class="two-thirds column" name="stock" placeholder="# in stock" id="cookie-stock-input">
+                        </div>
+
+                        <div class="twelve columns">
+                            <label for="muffin-stock" class="one-third column">Muffin(s)</label>
+                            <input class="two-thirds column" name="stock" placeholder="# in stock" id="muffin-stock-input">
+                        </div>
+
+                        <div class="twelve columns">
+                            <label for="bread-stock" class="one-third column">Bread(s)</label>
+                            <input class="two-thirds column" name="stock" placeholder="# in stock" id="bread-stock-input">
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+
+                    <button class="button-primary" id="stock-button" type="submit" value="Submit" formmethod="post"
+                        formaction='stock.php'>Update</button>
+                </form>
+
+            </div>
+        </div>
+        <hr class="container">
+    </div>
+
+
+    <div class="section Ads-performance">
+        <div class="container">
+            <h2>Ads Performance</h2>
+
+            <div class="row">
+
+                <div class="twelve columns" id="ads-grid">
+                    <p class="value-description">This is how this ad performed...</p>
+                    <img class="u-max-full-width" src="#" id="adsPerformance-img">
+                </div>
+            </div>
+        </div>
+        <hr class="container">
+    </div>
+
+
+    <div class="section Misc">
+        <div class="container">
+            <h2>Miscellaneous</h2>
+
+            <div class="row">
+
+                <div class="twelve columns" id="msic-grid">
+                    <h5 class="value-description">Reqeust more report from your admins to display :D</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+<noscript id="js_disabled">
+    <img src="/client?url=index.html&js_enabled=0" hidden>
+    <!-- javascript has been disabled -->
+</noscript>
+
+</html>
