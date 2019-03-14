@@ -1,16 +1,14 @@
 <?php
-include('config.php');
-   session_start();
-      
-   $user_check = $_SESSION['login_user'];
-   $ses_sql = mysqli_query($db,"select username from UserTable where username = '$user_check' ");
-         
-   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-         
-   $login_session = $row['username'];
-	    
    if(!isset($_SESSION['login_user'])){
-   	header("location:login.html");
-	die();
+   	header("location:login");
+      die();
+   }
+
+   function get_login_session($db){
+      $db = get_mysql_connection();
+      $user_check = $_SESSION['login_user'];
+      $user_check = mysqli_real_escape_string($db, $user_check);
+      $result = mysqli_query($db,"select * from UserTable where username = '$user_check'; ");
+      return $result;
    }
 ?>

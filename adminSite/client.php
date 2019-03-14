@@ -1,5 +1,6 @@
 <?php
-   include('session.php');
+    include('config.php');
+    include('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

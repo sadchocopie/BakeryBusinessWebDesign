@@ -1,5 +1,6 @@
 <?php
-   include('session.php');
+include('config.php');
+include('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +15,12 @@
 </head>
 
 <body>
-<?php
-    include 'table_dump.php';
-    table_dump("ErrorTable");
-?>
+    <?php
+    include('table_dump.php');
+    include('pdf.php');
+    //table_dump("ErrorTable");
+    ?>
+    <img src="new_chart.png">
 </body>
 
 </html> 

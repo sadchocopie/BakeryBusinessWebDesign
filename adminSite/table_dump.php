@@ -1,27 +1,9 @@
 <?php
-include('session.php');
 function table_dump($table_name)
 {
-    /* Database Connection Infromation */
-    $db_host = '157.230.150.204';
-    $db_user = 'reporter';
-    $db_pswd = 'Reportingpassword1!';
-    $db_name = 'bakery_db';
-    /* End of database connection info */
-
-    // attempt database connection
-    $link = mysqli_connect($db_host, $db_user, $db_pswd, $db_name);
-    if (mysqli_connect_errno()) {
-        die('Cannot connect to database');
-    }
-
-    // attempt selecting the database
-    if (!mysqli_select_db($link, $db_name)) {
-        die('Cannot select ' . $db_name);
-    }
-
+    $db = get_mysql_connection();
     // attempt querying the entire database
-    $result = mysqli_query($link, "SELECT * FROM {$table_name}");
+    $result = mysqli_query($db, "SELECT * FROM {$table_name}");
     if (!$result) {
         die('query failed');
     }
@@ -44,7 +26,7 @@ function table_dump($table_name)
     echo "</tr>\n";
     // end loop 
 
-    // track if the table is empty or not
+    // to track if the table is empty or not
     $empty = true;
 
     // loop over the rows in the query

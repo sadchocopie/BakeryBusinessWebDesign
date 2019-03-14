@@ -1,5 +1,6 @@
 <?php
-   include('session.php');
+    include('config.php');
+    include('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
 
 <body>
 <?php
-    include 'table_dump.php';
+    include ('table_dump.php');
     table_dump("EventsTable");
     table_dump("EventTypes");
     table_dump("MouseTable");
