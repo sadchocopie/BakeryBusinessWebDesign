@@ -24,7 +24,7 @@ if($_SERVER['CONTENT_TYPE'] === "application/json") {
 	$json = json_decode($json, true);
 }
 
-$btn_name = $json['btn_name'];
+$btn_name = $json['name'];
 $cookie = $json['cookie'];
 $timestamp = $json['timestamp'];
 
