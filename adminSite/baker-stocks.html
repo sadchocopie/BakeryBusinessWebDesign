@@ -49,8 +49,8 @@
             <div class="three columns" id="sideNav">
                 <nav id="sidebar">
                     <ul>
-                        <li><a href="" class="active">Report</a></li>
-                        <li><a href="stocks">Stocks</a></li>
+                        <li><a href="report">Report</a></li>
+                        <li><a href="" class="active">Stocks</a></li>
                         <li><a href="ads">Advertisements</a></li>
                         <li><a href="extra">Extra</a></li>
                     </ul>
@@ -61,15 +61,47 @@
             <div id="report-content" class="seven columns">
 
                 <div class="section dashboard-1">
-                    <div class="container">
-                        <h4>Weekly Report</h4>
-                        <h5 class="value-heading">Actual Sales</h5>
-                        <p class="value-description">This is the acutal sales of the week<p>
-                        <img class="u-max-full-width" src="actual-sales.png" id="actualSales-img">
-                        <h5 class="value-heading">Missed Sales</h5>
-                        <p class="value-description">These are the sales we have missed this week<p>
-                        <img class="u-max-full-width" src="missed-sales.png" id="actualSales-img">
-                    </div>
+                        <div class="section form">
+                            <div class="container">
+                                <h2>Current Stock</h2>
+                                <div class="row u-pull-left">
+
+                                    <form id="stock-form" action="./stock-update.php" action="POST" style="margin-left: 0;">
+                                        <div class="row">
+                                            <div class="twelve columns">
+                                                <label for="brownie-stock" class="one-third column">Brownie(s)</label>
+                                                <input type="number" two-thirds column" name="stock" placeholder="# in stock"
+                                                    id="brownie-stock-input">
+                                            </div>
+
+                                            <div class="twelve columns">
+                                                <label for="cookie-stock" class="one-third column">Cookie(s)</label>
+                                                <input type="number" class="two-thirds column" name="stock" placeholder="# in stock"
+                                                    id="cookie-stock-input">
+                                            </div>
+
+                                            <div class="twelve columns">
+                                                <label for="muffin-stock" class="one-third column">Muffin(s)</label>
+                                                <input type="number" class="two-thirds column" name="stock" placeholder="# in stock"
+                                                    id="muffin-stock-input">
+                                            </div>
+
+                                            <div class="twelve columns">
+                                                <label for="bread-stock" class="one-third column">Bread(s)</label>
+                                                <input type="number" class="two-thirds column" name="stock" placeholder="# in stock"
+                                                    id="bread-stock-input">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        </div>
+
+                                        <button class="button-primary" id="stock-button" type="submit" value="Submit"
+                                            formmethod="post" formaction='stock-update.php'>Update</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
                 </div>
 
                 <!--
@@ -141,7 +173,7 @@ height: 100vw;
 
 @media screen and (min-width: 600px) {
 #sideNav {
-height: 52vw;
+height: 100vw;
 }
 }
 </style>
