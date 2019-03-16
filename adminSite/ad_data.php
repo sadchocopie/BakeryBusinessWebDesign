@@ -26,14 +26,13 @@ if ($conn->connect_error) {
 }
 
 
-$list = array();
-$qty = array();
-$sql = "select bread, count(*) from Wishlist GROUP BY bread ORDER BY count(*) desc limit 5";
+$sales = array();
+
+$sql = "select adShown, count(*) from AdTable GROUP BY adShown ORDER BY count(*);";
 $result = $conn->query($sql);
 
 foreach ($result as $row) {
-	$list[] = $row['bread'];
-	$qty[] = $row['count(*)'];
+	$sales[] = $row['count(*)'];
 }
 
 $result->close();
@@ -42,9 +41,9 @@ $conn->close();
 $myPicture = new pDraw(500,230);
 
 /* Populate the pData object */
-$myPicture->myData->addPoints($qty);
-$myPicture->myData->setAxisName(0,"Searches");
-$myPicture->myData->addPoints($list,"Labels");
+$myPicture->myData->addPoints($sales, "Banana Bread");
+$myPicture->myData->setAxisName(0,"Sales");
+$myPicture->myData->addPoints(["Not Shown", "Shown"],"Labels");
 $myPicture->myData->setSerieDescription("Labels","Bread");
 $myPicture->myData->setAbscissa("Labels");
 
@@ -57,7 +56,7 @@ $myPicture->drawGradientArea(0,0,700,20, DIRECTION_VERTICAL, ["StartColor"=>new 
 
 /* Write the chart title */ 
 $myPicture->setFontProperties(["FontName"=>"/pChart/pChart/fonts/Forgotte.ttf","FontSize"=>11]);
-$myPicture->drawText(250,55,"Customer Wishlist",["FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE]);
+$myPicture->drawText(250,55,"Banana Bread Ad Tracking",["FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE]);
 
 /* Create the pCharts object */
 $pCharts = new pCharts($myPicture);

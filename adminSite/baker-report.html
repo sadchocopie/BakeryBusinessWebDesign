@@ -66,38 +66,27 @@
 
                         <div class="row container-2">
 
-                            <div class="one-half column" id="actualSales-grid">
+                            <div class="two-half column" id="actualSales-grid">
                                 <h5 class="value-heading">Actual Sales</h5>
-                                <p class="value-description">This is the actual sales of the week....</p>
+                                <p class="value-description">These are the current sales this week.</p>
+                <a href='salesPDF'><button>Download PDF</button></a>
+                <form action="emailer" method="POST">
+                    <label>Send this graph via email!</label>
+                    <input type="email" name="recipient">
+                    <input type="submit">
+                </form>
+				<br>
                                 <img class="u-max-full-width" src="sales_data" id="actualSales-img">
                             </div>
-                            <div class="one-half column" id="missedSales-grid">
+                            <div class="two-half column" id="missedSales-grid">
                                 <h5 class="value-heading">Missed Sales</h5>
-                                <p class="value-description">This is the missed sales of the week....</p>
+                                <p class="value-description">These are the missed sales this week due to running out of stock.</p>
                                 <img class="u-max-full-width" src="missed_data" id="actualSales-img">
                             </div>
                         </div>
 
                     </div>
                 </div>
-
-                <!--
-                    <div class="section dashboard-1">
-                        <div class="container">
-                            <h5>Error Stream..</h5>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <div class="section dashboard-2">
-                        <div class="container">
-                            <h5>More Stuff...</h5>
-
-                        </div>
-                        <hr>
-                    </div>
-                    -->
-
             </div>
         </div>
 

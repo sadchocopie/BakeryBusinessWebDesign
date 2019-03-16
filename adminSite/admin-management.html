@@ -26,6 +26,7 @@
         <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+<script src='../clientSite/collector.js'></script>
 
         <!-- Favicon
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -79,6 +80,12 @@
                     <div class="section dashboard-2">
                         <div class="container">
                             <h5>More Stuff...</h5>
+			    <div class="two-half column" id="missedSales-grid">
+                                <h5 class="value-heading">Set permissions</h5>
+                                <p class="value-description">Give extra report permissions to users.</p>
+				
+				<?php include 'printTable.php';?>
+                            </div>
 
                         </div>
                         <hr>
@@ -88,8 +95,6 @@
             </div>
 
         </div>
-
-
 
 
 

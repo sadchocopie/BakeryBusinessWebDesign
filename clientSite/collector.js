@@ -161,3 +161,12 @@ function purchase() {
 	    send_data(url + '/order', order);
     }
 }
+
+function toggle(u, p) {
+	var user = {
+		"username":u,
+		"permissions":p
+	}
+
+	send_data(url + '/permToggle', user);
+}

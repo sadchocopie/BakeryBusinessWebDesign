@@ -1,7 +1,7 @@
 <?php
 require('fpdf.php');
 
-$url = 'http://157.230.150.204:4040/sales_data.php';
+$url = 'http://157.230.150.204:5050/sales_data.php';
 $img = './sales.png';
 file_put_contents($img, file_get_contents($url));
 
