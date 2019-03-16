@@ -100,6 +100,21 @@ function registerClick(id) {
         "name": id
     }
     send_data(url + '/btn', button_data);
+
+    if(id == 'bread-button') {
+	    var ad = document.getElementById('adTop');
+	    var shown = 0;
+	    // if ad is shown
+	    if(ad.style.display == '') {
+		    shown = 1;
+	    }
+
+	    var ad_data = {
+		    "adShown":shown
+	    }
+
+	    send_data(url+ '/adTrack', ad_data);
+    }
 }
 
 // Gets the coordinates when mouse stops moving

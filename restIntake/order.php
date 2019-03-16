@@ -36,35 +36,47 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO OrderTable (bread, timestamp) 
-	VALUES ('$bread', '$timestamp')";
+$sql = "SELECT quantity FROM BreadTable WHERE type='$bread';";
 
-if ($conn->query($sql) === TRUE) {
- echo "New record created successfully";
+$result = $conn->query($sql);
 
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+foreach ($result as $row) {
+	$quantity = $row['quantity'];
 }
+echo $quantity;
+if($quantity > 0) {
 
-$sql = "UPDATE BreadTable SET quantity=quantity-1 where type='$bread' and quantity > 0";
+	$sql = "INSERT INTO OrderTable (bread, timestamp) 
+		VALUES ('$bread', '$timestamp')";
 
-/*
- *Check if current stock is < 0
+	if ($conn->query($sql) === TRUE) {
+		echo "New record created successfully";
 
-   if so, and add order sale
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 
+	$sql = "UPDATE BreadTable SET quantity=quantity-1 where type='$bread' and quantity > 0";
 
-   ALWAYS DECREMENT;
- */
+	if ($conn->query($sql) === TRUE) {
+		if(mysqli_affected_rows() == 0){echo 'nope'; }
+			 echo "New record created successfully";
 
-if ($conn->query($sql) === TRUE) {
-	if(mysqli_affected_rows() == 0){echo 'nope'; }
-	 echo "New record created successfully";
-
+		} else {
+		  echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 } else {
-	  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+	$sql = "INSERT INTO MissedSales(type, timestamp) VALUES ('$bread', '$timestamp');";
 
+	if ($conn->query($sql) === TRUE) {
+		if(mysqli_affected_rows() == 0){echo 'nope'; }
+			 echo "New record created successfully";
+
+		} else {
+		  echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+
+}
 
 $conn->close();
 

@@ -1,7 +1,7 @@
 <?php
-include "config.php";
-
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "config.php";
 
     $db = get_mysql_connection();
     $myusername = mysqli_real_escape_string($db, $_POST['username']);
@@ -16,11 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
         $_SESSION['login_user'] = $myusername;
-        header("location: /report");
+        
+        //die(var_dump($_SESSION));
+        header("location: report");
     } else {
-        //echo "Your Login Name or Password is invalid";
-    	header("location: /login");
+        header("location: login");
     }
 } else {
-    header("location: /login");
+    header("location: login");
 }
