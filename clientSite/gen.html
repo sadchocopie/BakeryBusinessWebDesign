@@ -1,0 +1,26 @@
+
+<script>
+
+	function randomDate(start, end) {
+		    return new Date(start.getTime() + Math.random() * 
+			    (end.getTime() - start.getTime())).toISOString().slice(0, 19).replace('T', ' ');
+	}
+
+for(var i = 0; i < 1000; i++) {
+	var t = randomDate(new Date(2019, 2, 10), new Date());
+	
+
+	var items = ['brownie', 'cookie', 'muffin', 'bananabread'];
+	var item = items[Math.floor(Math.random()*items.length)];
+
+	data = {
+		"bread":item,
+		"timestamp": t
+	}
+data = JSON.stringify(data);
+var xhr = new XMLHttpRequest();
+xhr.open("POST", 'http://157.230.150.204:3030/order.php', false);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(data);
+}
+</script>

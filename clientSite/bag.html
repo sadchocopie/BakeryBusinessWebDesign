@@ -27,7 +27,25 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="assets/js/handlebars-v4.1.0.js"></script>
+	<script>
+		function removeFromBag(itemIndex) {
+			            //....
 
+			var store = JSON.parse(localStorage.getItem('bagDetail'));
+
+			delete store[itemIndex];
+
+			localStorage.setItem("bagDetail", JSON.stringify(store));
+			console.log(store);
+
+			itemIndex = itemIndex.toString();
+			console.log("item index: " + itemIndex);
+
+			var childNode = document.getElementById(itemIndex);
+			childNode.style.display = "none";
+
+		 }
+	</script>
 
 
 
@@ -81,6 +99,10 @@
             </div>
         </div>
 
+	<div>
+		<button style='position:relative;left:60%;' onclick='purchase()'>Complete Purchase</button>
+	</div>
+
         <div class="section footer" style="text-align: center;">
             <div class="container">
                 <p>CSE135 Bakery - Made with &#10084;</p>
@@ -92,27 +114,7 @@
         <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     </body>
-
-    <script>
-        function removeFromBag(itemIndex) {
-            //....
-
-            var store = JSON.parse(localStorage.getItem('bagDetail'));
-
-            delete store[itemIndex];
-
-            localStorage.setItem("bagDetail", JSON.stringify(store));
-            console.log(store);
-
-            itemIndex = itemIndex.toString();
-            console.log("item index: " + itemIndex);
-
-            var childNode = document.getElementById(itemIndex);
-            childNode.style.display = "none";
-
-        }
-    </script>
-
+    <script src='./collector.js'></script>
 
     <script>
 

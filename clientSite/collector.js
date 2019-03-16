@@ -1,4 +1,4 @@
-const url = "http://localhost:3000";//fake rest endpoint locally
+const url = "http://157.230.150.204:3030";//fake rest endpoint locally
 //const url = "http://httpbin.org/post";//good for testing against real web server
 
 
@@ -66,6 +66,15 @@ window.onload = function page_load() {
     // send the data
     send_data(url + '/client', client_data);
     send_data(url + '/speed', speed_data);
+
+    var input = document.getElementById('search');
+
+    input.addEventListener("keyup", function(event) {
+    	if (event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById("searchButton").click();
+        }
+   });
 }
 
 // Gets the coordinates when mouse stops moving
@@ -107,4 +116,33 @@ document.onmousemove = function on_mouse_move (e) {
 
         send_data(url + '/mouse', mouse_data);
     },50);
+}
+
+function searchFunction() {
+       let list = ['brownie', 'cookie', 'muffin', 'bananabread'];
+       var val = document.getElementById('search').value;
+       val = val.replace(/\s/g, '');
+
+       if(list.includes(val)) {
+       		window.location = 'http://157.230.150.204:2020/menu.html#' + val;
+       } else {
+	        alert("We currently do not sell " + val+ ", but we will look into it! \nCome back soon!");
+          	wished_item = {
+			"bread": val,
+			"timestamp": new Date().toISOString().slice(0, 19).replace('T', ' ')
+		}
+
+	       send_data(url + '/wishlist', wished_item);
+       }
+}
+
+function purchase() {
+    var list = JSON.parse(localStorage.getItem('bagDetail'));
+    for(var i = 0; i < list.length; i++) {
+	    order = {
+		    'bread':list[i].itemID,
+		    'timestamp': new Date().toISOString().slice(0, 19).replace('T', ' ')
+	    }
+	    send_data(url + '/order', order);
+    }
 }

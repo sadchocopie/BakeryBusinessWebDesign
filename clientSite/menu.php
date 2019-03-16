@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,7 +28,7 @@
 
         <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <script>
+       <script>
             //pick 0 or 1 to cause a delay
             const cause_delay = Math.floor(Math.random()*2); 
 
@@ -40,10 +43,8 @@
             //write a comment in the DOM, but delayed
             setTimeout(document.write(`<!-- we delayed you ${delay} miliseconds -->`),delay);
         </script>
-
+ 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-	<script src="./collector.js"></script>
 
         <!-- Favicon
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -56,36 +57,15 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <div class="top-nav">
             <div class="container">
-                <div id="nav">
-                    <ul>
-                        <li><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
-                        </li>
-                        <li class="u-pull-right"><a href="./bag.html">Bag<img src="./assets/img/bag.png" id="bag"></a></li>
-                    </ul>
-                </div>
+                <h1><a href="./" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</h1>
             </div>
         </div>
-
-        <div id="adTop"> 
-            <marquee width="80%" scrollamount="5" scrolldelay="20" vspace="2" id="marquee">
-                <p>Check out our <em>NEW banana bread!</em>  &#10084;  </p>
-            </marquee>
-        </div>
-
-	<div id="searchBar">
-		<form>
-			<input style="position:absolute;left:25%;width: 50%;" type="text" id='search'>
-			<input style="position:relative;left:80%;" type='button' id='searchButton' value='Search' 
-			onclick="searchFunction()">
-		</form>
-
-	</div>
 
         <div class="section billboard" style="height: 8vw;">
             <div class="container">
                 <div class="row">
                     <div class="one-half column">
-                        <a class="button" href="./index.html" id="back-button" onclick="registerClick('back-button')">Back</a>
+                        <a class="button" href="./" id="back-button" onclick="registerClick('back-button')">Back</a>
                     </div>
                 </div>
             </div>
@@ -102,8 +82,8 @@
                     <div class="one-half column menu-item">
                         <h5 class="value-heading">Fudge Brownie</h5>
                         <p class="value-description">Yep just a brownie.</p>
-                        <p class="value-description pricetag" id="price">$2.50</p>
-                        <a class="button" id="brownie-button" onclick="registerClick('brownie-button'); addToBag('brownie');">Add to Bag</a>
+                        <p class="value-description pricetag" id="brownie-price">$2.50</p>
+                        <a class="button" id="brownie-button" onclick="registerClick('brownie-button')">Order</a>
                     </div>
                 </div>
 
@@ -115,8 +95,8 @@
                     <div class="one-half column menu-item">
                         <h5 class="value-heading">Oatmeal Rasin Cookie</h5>
                         <p class="value-description">The cookie ya wanna track.</p>
-                        <p class="value-description pricetag" id="price">$1.50</p>
-                        <a class="button" id="cookie-button" onclick="registerClick('cookie-btn') ; addToBag('cookie');">Add to Bag</a>
+                        <p class="value-description pricetag" id="cookie-price">$1.50</p>
+                        <a class="button" id="cookie-button" onclick="registerClick('cookie-btn')">Order</a>
                     </div>
                 </div>
 
@@ -129,21 +109,21 @@
                     <div class="one-half column menu-item">
                         <h5 class="value-heading">Ice Cream Muffin</h5>
                         <p class="value-description">Did someone say ice cream.</p>
-                        <p class="value-description pricetag" id="price">$3</p>
-                        <a class="button" id="muffin-button" onclick="registerClick('muffin-button'); addToBag('muffin');">Add to Bag</a>
+                        <p class="value-description pricetag" id="muffin-price">$3</p>
+                        <a class="button" id="muffin-button" onclick="registerClick('muffin-button')">Order</a>
                     </div>
                 </div>
 
                 <div class="row container-2">
 
-                    <div class="one-half column menu-item picture" id="bananabread">
+                    <div class="one-half column menu-item picture" id="bread">
                         <img class="u-max-full-width"  src="./assets/img/bread-color.png" id="bread-img">
                     </div>
                     <div class="one-half column menu-item">
                         <h5 class="value-heading">Banana Bread</h5>
                         <p class="value-description">Banana uwu na na.</p>
-                        <p class="value-description pricetag" id="price">$4</p>
-                        <a class="button" id="bread-button" onclick="registerClick('bread-button'); addToBag('bread');">Add to Bag</a>
+                        <p class="value-description pricetag" id="bread-price">$4</p>
+                        <a class="button" id="bread-button" onclick="registerClick('bread-button')">Order</a>
                     </div>
                 </div>
             </div>
@@ -174,85 +154,9 @@
         <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     </body>
-
-
-    <script>
-        // pick 0 or 1 
-        const random = Math.floor(Math.random()*2); 
-
-        // display banana bread ad 50/50 chance
-        if (random) {
-            document.getElementById("adTop").style.display = "";
-        } else {
-            document.getElementById("adTop").style.display = "none";
-        }
-    </script>
-
-
-    <script>
-
-        var oldArray = new Array();
-
-        var counter = 0;
-
-        function addToBag(itemID) {
-            
-            
-            
-            var tagname = itemID + '-img';     
-
-            var tag = document.getElementById(tagname).getAttribute("src");
-            var price = document.getElementById("price").innerHTML;
-
-            var details = {
-                index: counter,
-                itemID: itemID,
-                imgsrc: tag,
-                itemPrice: price,
-            };
-            
-            
-            oldArray.push(details);
-
-            details = JSON.stringify(oldArray);
-            window.localStorage.setItem('bagDetail', details);
-            console.log("added");
-
-            var buttonname = itemID + '-button';
-            document.getElementById(buttonname).innerHTML = "In Bag";
-            
-            counter++;
-
-        };
-
-    </script>
-
+    <script src="./collector.js"></script>
     <noscript id="js_disabled">
-        <img src="/client?url=index.html&js_enabled=0" hidden>
+        <img src="/client?url=/menu&js_enabled=0" hidden>
         <!-- javascript has been disabled -->
     </noscript>
 </html>
-
-<style>
-
-    #adTop {
-        border: 2px pink solid;
-        font-size: 24px;
-        color: darksalmon;
-        text-align: center;
-        height: 40px;
-    }
-
-    #nav ul li {
-        display: inline;
-    }
-
-    #nav a {
-        color: white;
-        text-decoration: none;
-    }
-
-    #nav a:hover {
-        color: antiquewhite;
-    }
-</style>
