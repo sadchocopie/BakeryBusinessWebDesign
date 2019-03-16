@@ -63,12 +63,21 @@
                 <div class="section dashboard-1">
                     <div class="container">
                         <h4>Weekly Report</h4>
-                        <h5 class="value-heading">Actual Sales</h5>
-                        <p class="value-description">This is the acutal sales of the week<p>
-                        <img class="u-max-full-width" src="actual-sales.png" id="actualSales-img">
-                        <h5 class="value-heading">Missed Sales</h5>
-                        <p class="value-description">These are the sales we have missed this week<p>
-                        <img class="u-max-full-width" src="missed-sales.png" id="actualSales-img">
+
+                        <div class="row container-2">
+
+                            <div class="one-half column" id="actualSales-grid">
+                                <h5 class="value-heading">Actual Sales</h5>
+                                <p class="value-description">This is the actual sales of the week....</p>
+                                <img class="u-max-full-width" src="http://157.230.150.204:5050/sales_data.php" id="actualSales-img">
+                            </div>
+                            <div class="one-half column" id="missedSales-grid">
+                                <h5 class="value-heading">Missed Sales</h5>
+                                <p class="value-description">This is the missed sales of the week....</p>
+                                <img class="u-max-full-width" src="http://157.230.150.204:5050/missed_data.php" id="actualSales-img">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
