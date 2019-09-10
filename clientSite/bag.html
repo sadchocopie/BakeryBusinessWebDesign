@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
 
-        <!-- Basic Page Needs
+    <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <meta charset="utf-8">
-        <title>CSE135 Bakery - Bag</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>CSE135 Bakery - Bag</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- FONT
+    <!-- FONT
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-        <!-- CSS
+    <!-- CSS
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="stylesheet" href="./Skeleton-2.0.4/css/normalize.css">
-        <link rel="stylesheet" href="./Skeleton-2.0.4/css/skeleton.css">
-        <link rel="stylesheet" href="./assets/css/custom.css">
+    <link rel="stylesheet" href="./Skeleton-2.0.4/css/normalize.css">
+    <link rel="stylesheet" href="./Skeleton-2.0.4/css/skeleton.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
 
-        <!-- Scripts
+    <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="assets/js/handlebars-v4.1.0.js"></script>
-	<script>
-		function removeFromBag(itemIndex) {
-			            //....
-
-			var store = JSON.parse(localStorage.getItem('bagDetail'));
-
-			delete store[itemIndex];
-
-			localStorage.setItem("bagDetail", JSON.stringify(store));
-			console.log(store);
-
-			itemIndex = itemIndex.toString();
-			console.log("item index: " + itemIndex);
-
-			var childNode = document.getElementById(itemIndex);
-			childNode.style.display = "none";
-
-		 }
-	</script>
-
-
-
-        <!-- Favicon
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="icon" type="image/png" href="./assets/img/favicon.png">
-
-    </head>
-    <body>
-
-        <!-- Primary Page Layout
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <div class="top-nav">
-            <div class="container">
-                <div id="nav">
-                    <ul>
-                        <li class="one-half column" style="max-width: 45%"><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
-                        </li>
-                        <li class="u-pull-right"><a href="./bag.html">Bag<img src="./assets/img/bag.png" id="bag"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="section billboard" style="height: 8vw;">
-            <div class="container">
-                <div class="row">
-                    <div class="one-half column">
-                        <a class="button" href="./menu.html" id="back-button" onclick="registerClick('back-button')">Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="section menu">
-            <div class="container" id="bagSpace">
-                <h3>Your Bag Detail</h3>
-                <script id="bag-template" type="text/x-handlebars-template">
-<div class="row container-2" id={{index}}>
-    <div class="one-half column menu-item picture" id={{itemID}}>
-        <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
-                    </div>
-    <div class="one-half column menu-item">
-        <h5 class="value-heading">{{itemID}}</h5>
-        <p class="value-description pricetag" id="price">{{itemPrice}}</p>
-        <a class="button" id="button" onclick="removeFromBag({{index}});">Remove</a>
-                    </div>
-                    </div>
-                </script>
-            </div>
-            
-            
-            <div class="container" id="purchaseSpace" style="text-align: center">
-            <button onclick='purchase()' style="color: white;">Complete Purchase </button>
-            </div>
-            
-        </div>
-
-    
-	<div>
-		
-	</div>
-
-        <div class="section footer" style="text-align: center;">
-            <div class="container">
-                <p>CSE135 Bakery - Made with &#10084;</p>
-            </div>
-        </div>
-
-
-
-        <!-- End Document
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    </body>
-    <script src='./collector.js'></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="assets/js/handlebars-v4.1.0.js"></script>
     <script>
+      function removeFromBag(itemIndex) {
+        //....
 
-        window.onload = function() {
+        var store = JSON.parse(localStorage.getItem('bagDetail'));
 
-            var storage = localStorage.getItem('bagDetail');
+        delete store[itemIndex];
 
-            var localStore = JSON.parse(storage);
+        localStorage.setItem("bagDetail", JSON.stringify(store));
+        console.log(store);
 
-            console.log(localStore);
+        itemIndex = itemIndex.toString();
+        console.log("item index: " + itemIndex);
 
-            $(document).ready(function() {
+        var childNode = document.getElementById(itemIndex);
+        childNode.style.display = "none";
 
-                var source = $("#bag-template").html();
-                var template = Handlebars.compile(source);
-                var parentDiv = $("#bagSpace");
-
-
-                for (var i = 0; i < localStore.length; i++) {
-
-                    if ( localStore[i] != null) {
-                        var curData = localStore[i];
-                        var curHtml = template(curData);
-                        parentDiv.append(curHtml);
-                    }
-                }
-
-
-            });
-        }
-
+      }
     </script>
 
 
 
-    <noscript id="js_disabled">
-        <img src="/client?url=index.html&js_enabled=0" hidden>
-        <!-- javascript has been disabled -->
-    </noscript>
+    <!-- Favicon
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+  </head>
+  <body>
+
+    <!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="top-nav">
+      <div class="container">
+        <div id="nav">
+          <ul>
+            <li class="one-half column" style="max-width: 45%"><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
+            </li>
+            <li class="u-pull-right"><a href="./bag.html">Bag<img src="./assets/img/bag.png" id="bag"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section billboard" style="height: 8vw;">
+      <div class="container">
+        <div class="row">
+          <div class="one-half column">
+            <a class="button" href="./menu.html" id="back-button" onclick="registerClick('back-button')">Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section menu">
+      <div class="container" id="bagSpace">
+        <h3>Your Bag Detail</h3>
+        <script id="bag-template" type="text/x-handlebars-template">
+<div class="row container-2" id={{index}}>
+  <div class="one-half column menu-item picture" id={{itemID}}>
+    <img class="u-max-full-width"  src={{imgsrc}} id="{{itemID}}-img">
+          </div>
+  <div class="one-half column menu-item">
+    <h5 class="value-heading">{{itemID}}</h5>
+    <p class="value-description pricetag" id="price">{{itemPrice}}</p>
+    <a class="button" id="button" onclick="removeFromBag({{index}});">Remove</a>
+          </div>
+          </div>
+        </script>
+      </div>
+
+
+      <div class="container" id="purchaseSpace" style="text-align: center">
+        <button onclick='purchase()' style="color: white;">Complete Purchase </button>
+      </div>
+
+    </div>
+
+
+    <div>
+
+    </div>
+
+    <div class="section footer" style="text-align: center;">
+      <div class="container">
+        <p>CSE135 Bakery - Made with &#10084;</p>
+      </div>
+    </div>
+
+
+
+    <!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+  <script src='./collector.js'></script>
+
+  <script>
+
+    window.onload = function() {
+
+      var storage = localStorage.getItem('bagDetail');
+
+      var localStore = JSON.parse(storage);
+
+      console.log(localStore);
+
+      $(document).ready(function() {
+
+        var source = $("#bag-template").html();
+        var template = Handlebars.compile(source);
+        var parentDiv = $("#bagSpace");
+
+
+        for (var i = 0; i < localStore.length; i++) {
+
+          if ( localStore[i] != null) {
+            var curData = localStore[i];
+            var curHtml = template(curData);
+            parentDiv.append(curHtml);
+          }
+        }
+
+
+      });
+    }
+
+  </script>
+
+
+
+  <noscript id="js_disabled">
+    <img src="/client?url=index.html&js_enabled=0" hidden>
+    <!-- javascript has been disabled -->
+  </noscript>
 </html>
 
 <style>
-    #adTop {
-        border: 2px pink solid;
-        font-size: 24px;
-        color: darksalmon;
-        text-align: center;
-        height: 40px;
-    }
+  #adTop {
+    border: 2px pink solid;
+    font-size: 24px;
+    color: darksalmon;
+    text-align: center;
+    height: 40px;
+  }
 
 </style>
