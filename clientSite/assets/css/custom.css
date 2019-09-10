@@ -1,4 +1,5 @@
 .top-nav {
+    padding-top: 0.2vh;
     background-color: darkslategray;
     color: white;
 }
@@ -21,6 +22,19 @@
 .top-nav h1 {
     font-size: 24px;
 }
+
+#nav ul li {
+        display: inline;
+    }
+
+    #nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #nav a:hover {
+        color: antiquewhite;
+    }
 
 .section {
     padding-top: 2vh;
@@ -73,6 +87,13 @@
     max-width: 38px;
 }
 
+    #adTop {
+        border: 2px pink solid;
+        font-size: 24px;
+        color: darksalmon;
+        text-align: center;
+        height: 40px;
+    }
 
 
 

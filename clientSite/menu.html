@@ -58,7 +58,7 @@
             <div class="container">
                 <div id="nav">
                     <ul>
-                        <li><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
+                        <li class="one-half column" style="max-width: 45%"><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
                         </li>
                         <li class="u-pull-right"><a href="./bag.html">Bag<img src="./assets/img/bag.png" id="bag"></a></li>
                     </ul>
@@ -72,13 +72,12 @@
             </marquee>
         </div>
 
-	<div id="searchBar">
+	<div id="searchBar" style="display: none">
 		<form>
 			<input style="position:absolute;left:25%;width: 50%;" type="text" id='search'>
 			<input style="position:relative;left:80%;" type='button' id='searchButton' value='Search' 
 			onclick="searchFunction()">
 		</form>
-
 	</div>
 
         <div class="section billboard" style="height: 8vw;">
@@ -91,7 +90,7 @@
             </div>
         </div>
 
-
+                       
         <div class="section menu">
             <div class="container">
                 <h3>Menu</h3>
@@ -235,24 +234,6 @@
 
 <style>
 
-    #adTop {
-        border: 2px pink solid;
-        font-size: 24px;
-        color: darksalmon;
-        text-align: center;
-        height: 40px;
-    }
 
-    #nav ul li {
-        display: inline;
-    }
 
-    #nav a {
-        color: white;
-        text-decoration: none;
-    }
-
-    #nav a:hover {
-        color: antiquewhite;
-    }
 </style>

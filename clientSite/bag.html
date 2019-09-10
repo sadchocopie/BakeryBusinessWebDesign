@@ -62,9 +62,9 @@
             <div class="container">
                 <div id="nav">
                     <ul>
-                        <li><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
+                        <li class="one-half column" style="max-width: 45%"><h1><a href="./index.html" id="logo-button" onclick="registerClick('logo-button')">CSE135 Bakery</a></h1>
                         </li>
-                        <li class="u-pull-right">Bag<img src="./assets/img/bag.png" id="bag"></li>
+                        <li class="u-pull-right"><a href="./bag.html">Bag<img src="./assets/img/bag.png" id="bag"></a></li>
                     </ul>
                 </div>
             </div>
@@ -97,10 +97,17 @@
                     </div>
                 </script>
             </div>
+            
+            
+            <div class="container" id="purchaseSpace" style="text-align: center">
+            <button onclick='purchase()' style="color: white;">Complete Purchase </button>
+            </div>
+            
         </div>
 
+    
 	<div>
-		<button style='position:relative;left:60%;' onclick='purchase()'>Complete Purchase</button>
+		
 	</div>
 
         <div class="section footer" style="text-align: center;">
@@ -157,7 +164,6 @@
 </html>
 
 <style>
-
     #adTop {
         border: 2px pink solid;
         font-size: 24px;
@@ -166,16 +172,4 @@
         height: 40px;
     }
 
-    #nav ul li {
-        display: inline;
-    }
-
-    #nav a {
-        color: white;
-        text-decoration: none;
-    }
-
-    #nav a:hover {
-        color: antiquewhite;
-    }
 </style>
